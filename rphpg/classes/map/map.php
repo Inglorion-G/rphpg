@@ -34,11 +34,14 @@
 				$row = array();
 
 				for($j = 0; $j < $x; $j++) {
-					
-					if($i == 0 || $i == 9)
+
+					if($i == 0 || $i == $y - 1) {
 						$row[] = "-";
-					else
+					} elseif ($j == 0 || $j == $y - 1) {
+						$row[] = "|";
+					} else {
 						$row[] = " ";
+					}
 				}
 
 				$rows[] = $row;
@@ -46,7 +49,7 @@
 			return $rows;
 		}
 	}
-
+	clear_screen();
 	$map = new Map();
 	$map->render_grid();
 
