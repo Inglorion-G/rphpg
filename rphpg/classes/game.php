@@ -1,14 +1,15 @@
 <?php
 
-include(__DIR__ . "/../utility.php");
+include_once(__DIR__ . "/../utility.php");
 
 class Game {
 
 	public $running;
 
-	function __construct($player) 
+	function __construct($player, $map) 
 	{
 		$this->running = true;
+		$this->map = $map;
 		$this->player = $player;
 	}
 
@@ -21,6 +22,9 @@ class Game {
 	{
 		if($input == "quit" || $input == "end") {
 			return false;
+		} else if ($input == "north" || $input == "south" || $input == "west" || $input == "east") {
+			$this->player->move($input);
+			return true;
 		} else {
 			return $input;
 		}
