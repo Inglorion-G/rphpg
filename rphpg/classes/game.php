@@ -29,7 +29,6 @@ class Game {
 			return $input;
 		}
 	}
-	
 
 }
 
