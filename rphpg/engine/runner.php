@@ -13,7 +13,7 @@ class Runner
 	public function run_game()
 	{
 		$this->running = true;
-		while($this->running) {
+		do {
 			$user_input = $this->game->get_input();
 			$result = $this->game->handle_input($user_input);
 
@@ -23,7 +23,7 @@ class Runner
 				puts($result);
 				$this->game->map->render_grid();
 			}
-		}
+		} while ($this->running);
 
 		puts("G A M E  O V E R!");
 	}

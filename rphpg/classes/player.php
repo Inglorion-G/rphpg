@@ -13,9 +13,10 @@ class Player {
 		$this->symbol = "@";
 	}
 
-	public function move($dir)
+	public function move($input)
 	{
-		switch($dir) {
+		$dirs = Constants::dirs();
+		switch($dirs[$input]) {
 			case "north":
 				$this->pos[1] = $this->pos[1] - 1;
 				break;
@@ -25,11 +26,11 @@ class Player {
 				break;
 
 			case "east":
-				$this->pos[0] = $this->pos[1] + 1;
+				$this->pos[0] = $this->pos[0] + 1;
 				break;
 
 			case "west":
-				$this->pos[0] = $this->pos[1] - 1;
+				$this->pos[0] = $this->pos[0] - 1;
 				break;
 		}
 	}

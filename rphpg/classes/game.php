@@ -15,21 +15,21 @@ class Game {
 
 	function get_input() 
 	{
-		return readline(">>> ");
+		$ans = strtolower( trim( `bash -c "read -n 1 ANS ; echo \\\$ANS"` ) );
+		return $ans;
 	}
 
 	function handle_input($input) 
 	{
-		if($input == "quit" || $input == "end") {
+		if($input == "q") {
 			return false;
-		} else if ($input == "north" || $input == "south" || $input == "west" || $input == "east") {
+		} else if ($input == "a" || $input == "b" || $input == "c" || $input == "d") {
 			$this->player->move($input);
 			return true;
 		} else {
 			return $input;
 		}
 	}
-
 }
 
 ?>
