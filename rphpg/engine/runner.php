@@ -26,6 +26,7 @@ class Runner
 		} while ($this->running);
 
 		puts("G A M E  O V E R!");
+		
 	}
 }
 
